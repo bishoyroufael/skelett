@@ -1,0 +1,22 @@
+[variables]
+project_name    = { prompt = "Please enter your project name: " }
+project_version = { prompt = "Please enter your project version: " }
+file_name_var   = ".gitignore"
+python_packages = """
+    flask==0.104.1
+    celery==5.3.4
+    python-multipart==0.0.6
+    pandas==2.1.2
+"""
+
+# Should use rhai evaluate expression
+conditional_stuff = "| if {{ file_name_var }} == '.gitignore' {'true'} else {'false'} |"
+
+[project.structure]
+directories = ["src/", "assets/", "tests/", "ci/"]
+files       = [{name = "README.md", content = "#Add your docs here"}, 
+            "{{ file_name_var }}", 
+            "docker-compose.yaml",
+            {name = "LICENSE", content = { uri = "https://raw.githubusercontent.com/rust-lang/rust/master/LICENSE-MIT"} }, 
+            "Dockerfile", 
+            {name = "requirements.txt", content = ["{{ python_packages }}"]}]

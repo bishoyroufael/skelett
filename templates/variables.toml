@@ -1,0 +1,18 @@
+
+[variables]
+project_name    = { prompt = "{{ project_env }} | Please enter your project name: " }
+project_version = { prompt = "{{ project_env }} | Please enter your project version: " }
+project_env    = { prompt = "Please enter your project env: " }
+file_name_var   = ".gitignore"
+flask_version = "0.104.1"
+python_packages = """
+    flask=={{ flask_version }}
+    celery==5.3.4
+    python-multipart==0.0.6
+    pandas==2.1.2
+"""
+
+question = {prompt = "This is okay?: "}
+variable_on_prompt = '{{ question }} is the answer to the question'
+
+
